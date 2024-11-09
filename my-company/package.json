@@ -1,5 +1,7 @@
 {
-  "name": "07reactrouter",
+
+
+  "name": "my-company-app",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -40,5 +42,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+
   }
 }
