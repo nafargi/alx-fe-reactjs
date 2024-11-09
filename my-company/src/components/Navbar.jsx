@@ -4,7 +4,11 @@ import "./Navbar.css";
 
 export default function Header() {
     return (
-        <header className="shadow sticky z-50 top-0">
+        <header style={{
+            backgroundColor: "white",
+            display: "flex",
+            justifyContent: "center"
+        }}>
             <nav className="nav-bar">
                 <div className="nav-bar-container">
                     <Link to="/" className="logo-container">
