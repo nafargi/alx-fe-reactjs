@@ -1,0 +1,34 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+header{
+    position: fixed;
+    width: 100%;
+   padding: 1rem 2rem;
+   background-color: rgb(255, 255, 255);
+    top: 0;
+    left: 0;
+}
+.nav-logo{
+    width: 150px;
+}
+.nav-bar-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.link-list{
+    display: flex;
+    gap: 3rem;
+    color: azure;
+}
+.link-list a{
+    color: gray;
+    &.tomato-link{
+        color: tomato;
+    }
+}
