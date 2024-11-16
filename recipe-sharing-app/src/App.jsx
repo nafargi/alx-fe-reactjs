@@ -3,7 +3,7 @@ import AddRecipeForm from './components/AddRecipeForm'
 import './App.css'
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import RecipeDetails from './components/RecipeDetail';
+import RecipeDetails from './components/RecipeDetails';
 import EditRecipeForm from './components/EditRecipeForm';
 
 function App() {
