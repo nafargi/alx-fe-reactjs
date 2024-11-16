@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useRecipeStore } from './recipeStore';
 
-const RecipeDetails = () => {
+const RecipeDetail= () => {
   const { recipeId } = useParams();
   const recipe = useRecipeStore((state) =>
     state.recipes.find((r) => r.id === parseInt(recipeId))
@@ -17,4 +17,4 @@ const RecipeDetails = () => {
   );
 };
 
-export default RecipeDetails;
+export default RecipeDetail;
