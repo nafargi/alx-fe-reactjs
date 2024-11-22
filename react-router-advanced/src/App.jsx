@@ -14,7 +14,8 @@ function App() {
     <AuthProvider>
     <Router>
       <Routes>
-      <Route path="/blog/:postId" element={<Blog />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
+     
         <Route path="/" element={<Home />} />
         <Route path="/profile/*" element={<Profile />} /> {/* Nested route */}
         <Route path="*" element={<NotFound />} /> {/* 404 Route */}
