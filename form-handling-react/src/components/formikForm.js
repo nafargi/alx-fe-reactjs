@@ -2,29 +2,28 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 function formikForm() {
-  const validationSchema = Yup.object({
-    username: Yup.string()
-      .required("Username is required")
-      .min(3, "Username must be at least 3 characters"),
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required"),
-    password: Yup.string()
-      .required("Password is required")
-      .min(6, "Password must be at least 6 characters"),
+  const validationSchema = Yup.object().shape({
+    username: Yup.string().required("Username is required."),
+    email: Yup.string().required("Email is required.")
+      .email("Invalid email address.")
+      ,
+    password: Yup.string().required("Password is required.")
+      .min(8, "Password must be at least 8 characters.")
+      ,
   });
 
-  // Initial values for the form
+  // Initial form values
   const initialValues = {
     username: "",
     email: "",
     password: "",
   };
 
-  // Handle form submission
+  // Form submission handler
   const handleSubmit = (values, { resetForm }) => {
-    alert(`Registration Successful!\n\n${JSON.stringify(values, null, 2)}`);
-    resetForm();
+    alert("Form submitted successfully!");
+    console.log(values);
+    resetForm(); // Reset form fields
   };
   return (
     <div style={{ width: "300px", margin: "0 auto", textAlign: "center" }}>
