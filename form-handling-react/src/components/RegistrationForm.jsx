@@ -20,15 +20,15 @@ function RegistrationForm() {
 
     const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.username) {
+    if (!username) {
         newErrors.username = "Username is required.";
         valid = false;
       }
-      if (!formData.email) {
+      if (!email) {
         newErrors.email = "Email is required.";
         valid = false;
       }
-      if (!formData.password) {
+      if (!password) {
         newErrors.password = "Password is required.";
         valid = false;
       }
