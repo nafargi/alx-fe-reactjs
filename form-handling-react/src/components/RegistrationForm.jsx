@@ -20,13 +20,26 @@ function RegistrationForm() {
 
     const handleSubmit = (e) => {
     e.preventDefault();
-    if (!formData.username || !formData.email || !formData.password) {
-      setErrors("All fields are mandatory");
-      return;
-
-    }
-    setErrors("");
-    alert("Registration Successful");
+    if (!formData.username) {
+        newErrors.username = "Username is required.";
+        valid = false;
+      }
+      if (!formData.email) {
+        newErrors.email = "Email is required.";
+        valid = false;
+      }
+      if (!formData.password) {
+        newErrors.password = "Password is required.";
+        valid = false;
+      }
+  
+      setErrors(newErrors);
+  
+      if (!valid) return;
+  
+      alert("Registration successful!");
+      // You can also handle further API submission logic here.
+    
 };
 
   return (
