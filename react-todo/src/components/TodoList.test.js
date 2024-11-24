@@ -7,7 +7,6 @@ describe("TodoList Component", () => {
     expect(screen.getByText("Learn React")).toBeInTheDocument();
     expect(screen.getByText("Learn Testing")).toBeInTheDocument();
   });
-
   test("adds a new todo", () => {
     render(<TodoList />);
     fireEvent.change(screen.getByPlaceholderText("Add a todo"), {
