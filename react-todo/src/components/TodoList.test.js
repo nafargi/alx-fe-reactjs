@@ -15,7 +15,6 @@ describe("TodoList Component", () => {
     fireEvent.click(screen.getByText("Add Todo"));
     expect(screen.getByText("New Todo")).toBeInTheDocument();
   });
-
   test("toggles a todo's completion status", () => {
     render(<TodoList />);
     const todoItem = screen.getByText("Learn React");
