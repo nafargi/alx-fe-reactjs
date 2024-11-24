@@ -24,7 +24,6 @@ describe("TodoList Component", () => {
     fireEvent.click(todoItem);
     expect(todoItem).toHaveStyle("text-decoration: none");
   });
-
   test("deletes a todo", () => {
     render(<TodoList />);
     const deleteButton = screen.getAllByText("Delete")[0];
