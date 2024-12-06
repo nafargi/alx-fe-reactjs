@@ -27,13 +27,17 @@ function RecipeDetail() {
             </ul>
     </section>
       <section className='bg-red-300'>
-            <p><strong className='text-2xl font-bold'>Instruction:</strong></p>
-            <ol>
-                {/* Assuming the JSON has a field 'steps' that is an array */}
-                {recipe.steps && recipe.steps.map((step, index) => (
-                <li key={index}>{step}</li>
-                ))}
-            </ol>
+      {recipe.instructions && (
+        <>
+          <p><strong  className='text-2xl font-bold'>Instructions:</strong></p>
+          <ol>
+            {recipe.instructions.map((step, index) => (
+              <li key={index}>{step}</li>
+            ))}
+          </ol>
+        </>
+      )}
+      {!recipe.instructions && <p>Instructions not available for this recipe.</p>}
       </section>
       
     </div>
