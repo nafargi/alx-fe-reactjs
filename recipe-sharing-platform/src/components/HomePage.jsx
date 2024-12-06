@@ -10,7 +10,7 @@ function HomePage() {
     }, []);
   return (
     <div className='flex justify-center '>  
-        <div className='grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3'>
+        <div className='grid sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-3'>
             {recipes.map(recipe => (
                 <div key={recipe.id} className='m-4 shadow-xl hover:shadow-2xl transition-shadow rounded'>
                     <h2 className="text-2xl font-bold">{recipe.title}</h2>
