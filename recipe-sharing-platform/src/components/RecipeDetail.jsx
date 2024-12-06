@@ -27,7 +27,7 @@ function RecipeDetail() {
             </ul>
     </section>
       <section className='bg-red-300'>
-            <p><strong className='text-2xl font-bold'>Cooking Steps:</strong></p>
+            <p><strong className='text-2xl font-bold'>Instruction:</strong></p>
             <ol>
                 {/* Assuming the JSON has a field 'steps' that is an array */}
                 {recipe.steps && recipe.steps.map((step, index) => (
