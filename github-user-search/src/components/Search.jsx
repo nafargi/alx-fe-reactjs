@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { fetchUserData } from './services/githubService';
+import { fetchUserData } from '../services/githubService';
 
 function Search() {
     const [username, setUsername] = useState('');
@@ -10,16 +10,16 @@ function Search() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
-        setError(null);
-        setUserData(null);
+        setError(null); // Clear previous errors
+        setUserData(null); // Clear previous user data
 
         try {
             const data = await fetchUserData(username);
-            setUserData(data);
+            setUserData(data); // Set the fetched user data
         } catch (err) {
-            setError('Looks like we can’t find the user.');
+            setError("Looks like we can’t find the user."); // Set the error message
         } finally {
-            setLoading(false);
+            setLoading(false); // Stop loading
         }
     };
 
@@ -37,6 +37,7 @@ function Search() {
                 <button type="submit">Search</button>
             </form>
 
+            {/* Conditional Rendering */}
             {loading && <p>Loading...</p>}
             {error && <p>{error}</p>}
             {userData && (
