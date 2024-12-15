@@ -1,11 +1,13 @@
-import React from 'react'
+// services/githubService.js
+import axios from 'axios';
 
-function githubService() {
-  return (
-    <div>
-      <h1>hello</h1>
-    </div>
-  )
-}
+const BASE_URL = 'https://api.github.com/users';
 
-export default githubService
+export const fetchUserData = async (username) => {
+    try {
+        const response = await axios.get(`${BASE_URL}/${username}`);
+        return response.data;
+    } catch (error) {
+        throw new Error('User not found');
+    }
+};
