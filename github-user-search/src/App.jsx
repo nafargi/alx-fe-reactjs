@@ -1,39 +1,62 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-
-
-const Home = () => <h1>Home Page</h1>;
-const About = () => <h1>About Page</h1>;
-const Contact = () => <h1>Contact Page</h1>;
-
-const Layout = ({ children }) => (
-    <div>
-        <header style={{ padding: '10px', backgroundColor: '#f0f0f0' }}>
-            <nav>
-                <Link to="/" style={{ margin: '0 10px' }}>Home</Link>
-                <Link to="/about" style={{ margin: '0 10px' }}>About</Link>
-                <Link to="/contact" style={{ margin: '0 10px' }}>Contact</Link>
-            </nav>
-        </header>
-        <main style={{ padding: '20px' }}>{children}</main>
-        <footer style={{ padding: '10px', backgroundColor: '#f0f0f0' }}>
-            <p>© 2024 My Website</p>
-        </footer>
-    </div>
-);
+import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'; // Use Routes instead of Switch
+import Search from './components/Search';  // Import the Search component
 
 function App() {
-    return (
-        <Router>
-            <Layout>
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contact />} />
-                </Routes>
-            </Layout>
-        </Router>
-    );
+  const [loading, setLoading] = useState(false);
+  const [userData, setUserData] = useState(null);
+  const [error, setError] = useState(null);
+
+  return (
+    <Router>
+      <div className="min-h-screen flex flex-col bg-gray-50">
+        {/* Header Section */}
+        <header className="bg-blue-600 text-white p-4 text-center">
+          <h1 className="text-2xl">GitHub User Search</h1>
+        </header>
+        
+        {/* Main Content */}
+        <main className="flex-grow container mx-auto p-4">
+          <Routes> {/* Replaces Switch */}
+            <Route path="/" element={
+              <>
+                <Search
+                  setLoading={setLoading}
+                  setUserData={setUserData}
+                  setError={setError}
+                />
+                {/* Display loading or error message */}
+                {loading && <p className="text-center text-lg">Loading...</p>}
+                {error && <p className="text-center text-red-600">{error}</p>}
+
+                {/* Display user data once fetched */}
+                {userData && (
+                  <div className="mt-4 p-4 bg-white shadow rounded">
+                    <h2 className="text-xl font-semibold">{userData.login}</h2>
+                    <img
+                      src={userData.avatar_url}
+                      alt={userData.login}
+                      className="w-20 h-20 rounded-full"
+                    />
+                    <p className="mt-2">Location: {userData.location || 'Not available'}</p>
+                    <p className="mt-2">Repositories: {userData.public_repos}</p>
+                    <a
+                      href={userData.html_url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-500 mt-4 inline-block"
+                    >
+                      Visit Profile
+                    </a>
+                  </div>
+                )}
+              </>
+            } />
+          </Routes>
+        </main>
+      </div>
+    </Router>
+  );
 }
 
 export default App;
